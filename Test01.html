@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset=utf-8>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			google.load("visualization", "1", {
+				packages:[
+					"corechart",
+				]
+			});
+			
+			google.setOnLoadCallback(drawChart);
+			
+			function drawChart(){
+				var data = google.visualization.arrayToDataTable([
+					["年度", "売上", "費用"],
+					["2004", 1000, 400],
+					["2005", 1170, 460],
+					["2006", 660, 1120],
+					["2007", 1030, 540],
+					["2008", 1300, 1500],
+				]);
+				
+				var options = {
+					title: "会社業績",
+				};
+				
+				var chart = new google.visualization.LineChart(
+					document.getElementById("chart_div")
+				);
+				
+				chart.draw(data, options);
+			}
+		</script>
+		<div id="chart_div" style="width:80%; height:400px;"></div>
+	</body>
+</html>
+
